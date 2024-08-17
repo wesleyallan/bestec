@@ -9,14 +9,15 @@
   <title>Bestec - Login</title>
 </head>
 
-<body class="bg-gray-900 flex flex-col items-center gap-4 m-6">
-  <nav class="bg-gray-800 w-fit rounded-xl flex justify-center items-center overflow-hidden">
+<body class="relative bg-gray-900 flex flex-col items-center gap-4 m-6">
+  <span class="block absolute w-full h-[2px] bg-gray-800 top-6 rounded-md"></span>
+  <nav class="bg-gray-800 w-fit rounded-3xl flex justify-center items-center overflow-hidden z-10">
     <a href="{{url_for("index")}}"
-      class="font-medium text-gray-400 hover:text-gray-300 px-4 py-3 hover:bg-gray-600">Página Inicial</a>
+      class="font-medium text-gray-400 hover:text-gray-300 px-4 py-3 hover:bg-gray-600 rounded-md">Página Inicial</a>
     <a href="{{url_for("login")}}"
-      class="font-medium text-gray-400 hover:text-gray-300 px-4 py-3 hover:bg-gray-600">Categorias</a>
+      class="font-medium text-gray-400 hover:text-gray-300 px-4 py-3 hover:bg-gray-600 rounded-md">Categorias</a>
     <a href="{{url_for("login")}}"
-      class="font-medium text-gray-400 hover:text-gray-300 px-4 py-3 hover:bg-gray-600">Minha Conta</a>
+      class="font-medium text-gray-400 hover:text-gray-300 px-4 py-3 hover:bg-gray-600 rounded-md">Minha Conta</a>
   </nav>
   <div class="flex flex-col justify-center items-center h-full">
     <main class="max-w-screen-lg bg-gray-800 rounded-lg flex flex-col md:flex-row shadow">
