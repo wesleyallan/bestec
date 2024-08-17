@@ -4,84 +4,75 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
-  <!-- Fim font -->
   <script src="https://kit.fontawesome.com/177f0e37f6.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script> -->
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            clifford: '#da373d',
-          }
-        }
-      }
-    }
-  </script>
-  <style>
-    body {
-      font-family: 'Fira Code', monospace;
-    }
-  </style>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
   <title>Bestec - Login</title>
 </head>
 
-<body class="flex flex-col justify-center items-center w-screen h-screen bg-gray-900">
-  <div class="flex justify-center w-full mb-4">
-    <h1 class="text-5xl relative text-gray-500">
-      Login
-      <span class="absolute left-1 bottom-0 block w-14 h-1.5 bg-green-600"></span>
-    </h1>
-  </div>
-  <div class="max-w-screen-lg bg-gray-800 rounded-lg flex flex-col md:flex-row">
-    <!-- Registro -->
-    <div class="p-16">
-      <form class="flex flex-col text-gray-500" method="post" action="caduser">
-        <input
-          class="outline-none w-full h-12 bg-gray-900 rounded-md border-2 border-gray-900 transition-colors duration-200 ease-in-out text-white px-5 focus:border-green-600"
-          type="text" name="user" placeholder="Username" required />
-        <input
-          class="outline-none w-full h-12 bg-gray-900 rounded-md border-2 border-gray-900 transition-colors duration-200 ease-in-out text-white px-5 focus:border-green-600 mt-4"
-          type="email" name="mail" placeholder="E-Mail" required />
-        <input
-          class="outline-none w-full h-12 bg-gray-900 rounded-md border-2 border-gray-900 transition-colors duration-200 ease-in-out text-white px-5 focus:border-green-600 mt-4"
-          type="password" name="senha" placeholder="Senha" required />
-        <div class="mt-4">
-          <input class="hidden" id="termo" type="checkbox" name="termos" required />
-          <label for="termo" class="text-gray-500 flex gap-2 itens-center">
-            <span class="inline-block w-4 h-4 bg-gray-900 border border-gray-900 rounded-sm mr-2 mb-0.5"></span>
-            Li e aceito os <a href="#" class="text-gray-500 hover:text-green-600">termos de uso</a>
+<body class="bg-gray-900 flex flex-col items-center gap-4 m-6">
+  <nav class="bg-gray-800 w-fit rounded-xl flex justify-center items-center overflow-hidden">
+    <a href="{{url_for("index")}}"
+      class="font-medium text-gray-400 hover:text-gray-300 px-4 py-3 hover:bg-gray-600">Página Inicial</a>
+    <a href="{{url_for("login")}}"
+      class="font-medium text-gray-400 hover:text-gray-300 px-4 py-3 hover:bg-gray-600">Categorias</a>
+    <a href="{{url_for("login")}}"
+      class="font-medium text-gray-400 hover:text-gray-300 px-4 py-3 hover:bg-gray-600">Minha Conta</a>
+  </nav>
+  <div class="flex flex-col justify-center items-center h-full">
+    <main class="max-w-screen-lg bg-gray-800 rounded-lg flex flex-col md:flex-row shadow">
+      <!-- Registro -->
+      <div class="flex flex-col gap-4 p-16">
+        <div class="flex justify-center w-full">
+          <h1 class="text-2xl text-gray-400">
+            Registro
+          </h1>
+        </div>
+        <form class="flex flex-col text-gray-500" method="post" action="caduser">
+          <input
+            class="outline-none w-full h-12 bg-gray-900 rounded-md border-2 border-gray-900 transition-colors duration-200 ease-in-out text-white px-5 focus:border-blue-600"
+            type="text" name="user" placeholder="Username" required />
+          <input
+            class="outline-none w-full h-12 bg-gray-900 rounded-md border-2 border-gray-900 transition-colors duration-200 ease-in-out text-white px-5 focus:border-blue-600 mt-4"
+            type="email" name="mail" placeholder="E-Mail" required />
+          <input
+            class="outline-none w-full h-12 bg-gray-900 rounded-md border-2 border-gray-900 transition-colors duration-200 ease-in-out text-white px-5 focus:border-blue-600 mt-4"
+            type="password" name="senha" placeholder="Senha" required />
+          <label for="termo" class="text-gray-500 flex gap-2 items-center justify-center mt-4">
+            <input class="hidden peer" id="termo" type="checkbox" name="termos" required />
+            <span class="w-5 h-5 bg-gray-900 rounded-sm peer-checked:bg-blue-600 border-none cursor-pointer"></span>
+            Li e aceito os <a href="#" class="text-gray-400 hover:text-blue-500">termos de uso</a>
           </label>
+          <input
+            class="outline-none bg-blue-600/50 mt-4 rounded-md h-12 border-0 text-gray-200 font-bold cursor-pointer transition-all duration-200 ease-in-out hover:bg-blue-600 hover:text-white"
+            type="submit" value="Registrar" />
+        </form>
+      </div>
+
+      <!-- Login -->
+      <div class="border-t-2 border-gray-900/50 md:border-l-2 md:border-t-0 flex flex-col gap-4 p-16">
+        <div class="flex justify-center w-full">
+          <h1 class="text-2xl text-gray-400">
+            Login
+          </h1>
         </div>
-        <input
-          class="outline-none bg-green-600/50 mt-4 rounded-md h-12 border-0 text-gray-200 font-bold cursor-pointer transition-all duration-200 ease-in-out hover:bg-green-600 hover:text-white"
-          type="submit" value="Registrar" />
-      </form>
-    </div>
-    <!-- Login -->
-    <div class="p-16 border-t-2 border-gray-700 md:border-l-2 md:border-t-0">
-      <form class="form flex flex-col text-gray-500">
-        <input
-          class="outline-none w-full h-12 bg-gray-900 rounded-md border-2 border-gray-900 transition-colors duration-200 ease-in-out text-white px-5 focus:border-green-600"
-          type="text" name="user" placeholder="Username" required />
-        <input
-          class="outline-none w-full h-12 bg-gray-900 rounded-md border-2 border-gray-900 transition-colors duration-200 ease-in-out text-white px-5 focus:border-green-600 mt-4"
-          type="password" name="senha" placeholder="Senha" required />
-        <a class="mt-4 text-gray-500 hover:text-green-600" href="#">Esqueceu a senha?</a>
-        <input
-          class="outline-none bg-green-600/50 mt-4 rounded-md h-12 border-0 text-gray-200 font-bold cursor-pointer transition-all duration-200 ease-in-out hover:bg-green-600 hover:text-white"
-          type="submit" value="Entrar" />
-        <div class="border-t-2 border-gray-700 mt-4 ">
-          <a class="mt-4 flex justify-center items-center rounded-md bg-gray-900 h-12 text-gray-500 transition-all duration-200 ease-in-out hover:bg-green-600 hover:text-white"
-            href="#"><i class="fab fa-google mr-2"></i>Google</a>
-        </div>
-      </form>
-    </div>
+        <form class="form flex flex-col text-gray-500" method="post" action="loguser">
+          <input
+            class="outline-none w-full h-12 bg-gray-900 rounded-md border-2 border-gray-900 transition-colors duration-200 ease-in-out text-white px-5 focus:border-blue-600"
+            type="text" name="user" placeholder="Username" required />
+          <input
+            class="outline-none w-full h-12 bg-gray-900 rounded-md border-2 border-gray-900 transition-colors duration-200 ease-in-out text-white px-5 focus:border-blue-600 mt-4"
+            type="password" name="senha" placeholder="Senha" required />
+          <a class="mt-4 text-gray-500 hover:text-blue-600" href="#">Esqueceu a senha?</a>
+          <input
+            class="outline-none bg-blue-600/50 mt-4 rounded-md h-12 border-0 text-gray-200 font-bold cursor-pointer transition-all duration-200 ease-in-out hover:bg-blue-600 hover:text-white"
+            type="submit" value="Entrar" />
+          <div class="border-t-2 border-gray-700 mt-4 ">
+            <a class="mt-4 flex justify-center items-center rounded-md bg-gray-900 h-12 text-gray-400 transition-all duration-200 ease-in-out hover:bg-blue-600 hover:text-white"
+              href="#"><i class="fab fa-google mr-2"></i>Google</a>
+          </div>
+        </form>
+      </div>
+    </main>
   </div>
 </body>
 
